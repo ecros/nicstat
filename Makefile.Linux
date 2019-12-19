@@ -24,8 +24,8 @@ CMODEL =	-m32
 
 CFLAGS =	$(COPT) $(CMODEL)
 
-INSTALL =	sudo install -o bin -g bin
-SETUINSTALL =	sudo install -o root -g root -m 4511
+INSTALL =	install -o bin -g bin
+SETUINSTALL =	install -o root -g root -m 4511
 
 #-- Change this for your OS.  Look in nicstat.sh to see if you want
 #-- to be more specific
@@ -67,9 +67,9 @@ install_native : $(BINARIES)
 install_multi_platform : $(NATIVE_BINARY) enicstat
 	$(INSTALL) -m 755 nicstat.sh $(BINDIR)/nicstat
 	$(INSTALL) -m 555 enicstat $(BINDIR)
-	sudo cp -p .nicstat.* $(MP_DIR)
-	sudo chown root:bin $(MP_DIR)/.nicstat.Linux*
-	sudo chmod 4711 $(MP_DIR)/.nicstat.Linux*
+	cp -p .nicstat.* $(MP_DIR)
+	chown root:bin $(MP_DIR)/.nicstat.Linux*
+	chmod 4711 $(MP_DIR)/.nicstat.Linux*
 
 install_man: nicstat.1
 	$(INSTALL) -m 444 nicstat.1 $(MANDIR)/man1/nicstat.1
